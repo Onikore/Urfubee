@@ -2,10 +2,10 @@ from sqlalchemy.orm import Session
 
 from app.crud.base import CRUDBase
 from app.models.likes import Likes
-from app.schemas.likes import LikeCreate
+from app.schemas.likes import LikeCreate, LikeUpdate
 
 
-class CRUDLike(CRUDBase[Likes, LikeCreate, ...]):
+class CRUDLike(CRUDBase[Likes, LikeCreate, LikeUpdate]):
 
     def like(self, db: Session, obj_in: LikeCreate):
         like = db.query(self.model) \

@@ -12,6 +12,10 @@ class LikeCreate(LikeBase):
     like_type: bool
 
 
+class LikeUpdate(LikeBase):
+    ...
+
+
 class LikeInDB(LikeBase):
     id: int
 

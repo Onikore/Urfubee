@@ -19,6 +19,10 @@ class CommentCreate(CommentBase):
     text: str
 
 
+class CommentUpdate(CommentBase):
+    ...
+
+
 class CommentInDB(CommentBase):
     created_at: datetime.datetime
 
