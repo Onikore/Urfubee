@@ -9,8 +9,6 @@ load_dotenv(dotenv_path)
 
 
 class Settings(BaseSettings):
-    FIRST_SUPERUSER_EMAIL: str = os.getenv('FIRST_SUPERUSER_EMAIL')
-    FIRST_SUPERUSER_PASSWORD: str = os.getenv('FIRST_SUPERUSER_PASSWORD')
     DEFAULT_PREVIEW: str = 'https://pp_urfu_test.hb.bizmrg.com/previews/default.jpg'
 
     # POSTGRES CREDS

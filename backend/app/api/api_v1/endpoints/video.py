@@ -2,6 +2,7 @@ from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from starlette import status
 
 from app import crud
 from app.api import deps
@@ -24,5 +25,6 @@ def create_video():
 def get_video(id: int, db: Session = Depends(deps.get_db)) -> VideoInDB:
     video = crud.video.get(db, id=id)
     if not video:
-        raise HTTPException(status_code=404, detail="Video not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail="Video not found")
     return video

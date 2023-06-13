@@ -1,0 +1,11 @@
+databases~=0.7.0
+SQLAlchemy~=1.4.47
+fastapi~=0.93.0
+pydantic~=1.10.5
+starlette~=0.25.0
+pathlib~=1.0.1
+python-dotenv~=1.0.0
+passlib~=1.7.4
+uvicorn~=0.20.0
+
+
