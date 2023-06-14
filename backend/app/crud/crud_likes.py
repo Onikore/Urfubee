@@ -6,6 +6,14 @@ from app.schemas.likes import LikeCreate, LikeUpdate
 
 
 class CRUDLike(CRUDBase[Likes, LikeCreate, LikeUpdate]):
+    def likes_count(self, db: Session, video_id: int):
+        obj = db.query(self.model).filter(self.model.video_id == video_id)
+        likes = obj.filter(self.model.like_type == True).count()
+        dislikes = obj.filter(self.model.like_type == False).count()
+        return {
+            'likes': likes,
+            'dislikes': dislikes
+        }
 
     def like(self, db: Session, obj_in: LikeCreate):
         like = db.query(self.model) \

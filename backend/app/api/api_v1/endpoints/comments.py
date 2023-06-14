@@ -11,7 +11,7 @@ from app.schemas.comment import GetComments, CommentInDB, CommentCreate
 router = APIRouter()
 
 
-@router.get('/{video_id}', response_model=List[GetComments])
+@router.get('/{video_id}', response_model=List[CommentInDB])
 async def read_comments(video_id: int, skip=0, limit=5, db: Session = Depends(deps.get_db)):
     return crud.comments.get_multi_com(db=db, video_id=video_id, skip=skip, limit=limit)
 

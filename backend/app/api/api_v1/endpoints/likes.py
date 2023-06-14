@@ -16,3 +16,8 @@ def like_video(obj_in: LikeCreate,
     obj_in.user_id = current_user.id
     is_liked = crud.likes.like(db, obj_in=obj_in)
     return is_liked
+
+
+@router.get('/{video_id}')
+def likes_count(video_id: int, db: Session = Depends(deps.get_db)):
+    return crud.likes.likes_count(db, video_id=video_id)

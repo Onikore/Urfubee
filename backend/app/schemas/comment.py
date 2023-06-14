@@ -15,7 +15,6 @@ class GetComments(CommentBase):
 
 class CommentCreate(CommentBase):
     video_id: int
-    user_id: int
     text: str
 
 
