@@ -9,7 +9,7 @@ load_dotenv(dotenv_path)
 
 
 class Settings(BaseSettings):
-    DEFAULT_PREVIEW: str = 'https://pp_urfu_test.hb.bizmrg.com/previews/default.jpg'
+    DEFAULT_PREVIEW: str = 'https://tochka.hb.bizmrg.com/previews/default.jpg'
 
     # POSTGRES CREDS
     __DB_USER: str = os.getenv('DB_USER')
