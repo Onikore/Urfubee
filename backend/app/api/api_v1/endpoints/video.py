@@ -6,7 +6,8 @@ from starlette import status
 
 from app import crud
 from app.api import deps
-from app.schemas.video import VideoInDB
+from app.models.user import User
+from app.schemas.video import VideoInDB, VideoCreate
 
 router = APIRouter()
 
@@ -17,8 +18,11 @@ def get_multi_videos(skip=0, limit=5, db: Session = Depends(deps.get_db)) -> Lis
 
 
 @router.post('/')
-def create_video():
-    return {'пока что хз как ': 'без фронта'}
+def create_video(obj_in: VideoCreate,
+                 current_user: User = Depends(deps.get_current_user),
+                 db: Session = Depends(deps.get_db)):
+    obj_in.user_id = current_user.id
+    return crud.video.create(db, obj_in=obj_in)
 
 
 @router.get('/{id}', response_model=VideoInDB)

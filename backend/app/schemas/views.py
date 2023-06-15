@@ -1,22 +1,20 @@
 from pydantic import BaseModel
 
 
-class LikeBase(BaseModel):
+class ViewsBase(BaseModel):
     video_id: int = None
     user_id: int = None
-    like_type: bool = None
 
 
-class LikeCreate(LikeBase):
+class ViewsCreate(ViewsBase):
     video_id: int
-    like_type: bool
 
 
-class LikeUpdate(LikeBase):
+class ViewsUpdate(ViewsBase):
     ...
 
 
-class LikeInDB(LikeBase):
+class ViewsInDB(ViewsBase):
 
     class Config:
         orm_mode = True
